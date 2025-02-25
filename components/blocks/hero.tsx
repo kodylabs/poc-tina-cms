@@ -21,7 +21,7 @@ export const Hero = ({ data }: { data: PageBlocksHero }) => {
     orange: "from-orange-300 to-orange-600",
     yellow: "from-yellow-400 to-yellow-600",
   };
-
+ 
   return (
     <Section color={data.color}>
       <Container
