@@ -21,7 +21,7 @@ const Page: Collection = {
   fields: [
     {
       type: "string",
-      label: "Title",
+      label: "Title gros batard",
       name: "title",
       description:
         "The title of the page. This is used to display the title in the CMS",
@@ -45,6 +45,12 @@ const Page: Collection = {
         videoBlockSchema,
       ],
     },
+    {
+      type: "datetime",
+      name: "date",
+      label: "Date",
+      description: "The date the page was created",
+    }
   ],
 };
 
