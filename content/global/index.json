@@ -34,7 +34,7 @@
     }
   },
   "theme": {
-    "color": "blue",
+    "color": "teal",
     "font": "sans",
     "darkMode": "light"
   }
