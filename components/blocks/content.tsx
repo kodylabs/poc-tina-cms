@@ -11,7 +11,7 @@ import MermaidElement from "../mermaid-renderer";
 
 export const Content = ({ data }: { data: PageBlocksContent }) => {
   return (
-    <Section color={data.color}>
+    <Section color={"blue"}>
       <Container
         className={`prose prose-lg ${
           data.color === "primary" ? `prose-primary` : `dark:prose-dark`
@@ -22,11 +22,11 @@ export const Content = ({ data }: { data: PageBlocksContent }) => {
       >
         <TinaMarkdown 
           content={data.body}
-          components={{
-            mermaid({ value }) {
-              return <MermaidElement value={value} />;
-            }
-          }}
+          // components={{
+          //   mermaid({ value }) {
+          //     return <MermaidElement value={value} />;
+          //   }
+          // }}
         />
       </Container>
     </Section>

@@ -23,7 +23,7 @@ export const Hero = ({ data }: { data: PageBlocksHero }) => {
   };
  
   return (
-    <Section color={data.color}>
+    <Section color={"blue"}>
       <Container
         size="large"
         className="grid grid-cols-1 md:grid-cols-5 gap-14 items-start justify-center"
@@ -67,11 +67,11 @@ export const Hero = ({ data }: { data: PageBlocksHero }) => {
                 >
                   <TinaMarkdown 
                     content={data.text}
-                    components={{
-                      mermaid({ value }) {
-                        return <MermaidElement value={value} />;
-                      }
-                    }}
+                    // components={{
+                    //   mermaid({ value }) {
+                    //     return <MermaidElement value={value} />;
+                    //   }
+                    // }}
                   />
                 </div>
               )}
@@ -81,14 +81,15 @@ export const Hero = ({ data }: { data: PageBlocksHero }) => {
                 data-tina-field={tinaField(data.image, "src")}
                 className="relative flex-shrink-0 md:w-2/5 flex justify-center"
               >
-                <Image
+                {/* <Image
                   className="w-full h-auto max-w-full rounded-lg"
                   style={{ objectFit: "cover" }}
                   alt={data.image.alt}
                   src={data.image.src}
                   width={500}
                   height={500}
-                />
+                /> */}
+                image normalement
               </div>
             )}
           </div>
@@ -101,21 +102,21 @@ export const Hero = ({ data }: { data: PageBlocksHero }) => {
             >
               <TinaMarkdown 
                 content={data.text2}
-                components={{
-                  mermaid({ value }) {
-                    return <MermaidElement value={value} />;
-                  }
-                }}
+                // components={{
+                //   mermaid({ value }) {
+                //     return <MermaidElement value={value} />;
+                //   }
+                // }}
               />
             </div>
           )}
           {data.actions && (
             <div className="mt-10">
-              <Actions
+              {/* <Actions
                 className="justify-center md:justify-start py-2"
                 parentColor={data.color}
                 actions={data.actions}
-              />
+              /> */}
             </div>
           )}
         </div>

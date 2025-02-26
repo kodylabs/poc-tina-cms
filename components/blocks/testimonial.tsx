@@ -7,7 +7,7 @@ import { Container } from "../layout/container";
 
 export const Testimonial = ({ data }: { data: PageBlocksTestimonial }) => {
   return (
-    <Section color={data.color}>
+    <Section color={"blue"}>
       <Container size="large">
         <blockquote>
           <div

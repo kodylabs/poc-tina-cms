@@ -32,11 +32,6 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const globalQuery = await client.queries.global({
-    relativePath: "index.json",
-  });
-  const global = globalQuery.data.global;
-
   const selectFont = (fontName: string) => {
     switch (fontName) {
       case "nunito":
@@ -48,7 +43,8 @@ export default async function RootLayout({
         return `font-sans ${fontSans.variable} `;
     }
   };
-  const fontVariable = selectFont(global.theme.font);
+
+  const fontVariable = selectFont("nunito");
 
   return (
     <html lang="en">

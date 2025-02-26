@@ -43,7 +43,7 @@ export default function NavItems({ navs }: { navs: any }) {
             key={item.href}
             className={
               currentPath === `/${item.href}`
-                ? activeItemClasses[theme.color]
+                ? activeItemClasses["blue"]
                 : ""
             }
           >
@@ -55,7 +55,7 @@ export default function NavItems({ navs }: { navs: any }) {
               {item.label}
               {currentPath === `/${item.href}` && (
                 <NavActive
-                  backgroundColor={activeBackgroundClasses[theme.color]}
+                  backgroundColor={activeBackgroundClasses["blue"]}
                 />
               )}
             </Link>

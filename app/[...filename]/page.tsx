@@ -21,13 +21,14 @@ export default async function Page({
 
 export async function generateStaticParams() {
   let pages = await client.queries.pageConnection();
-  const allPages = pages;
+  const allPages = pages as any;
 
   while (pages.data.pageConnection.pageInfo.hasNextPage) {
     pages = await client.queries.pageConnection({
       after: pages.data.pageConnection.pageInfo.endCursor,
     });
-    allPages.data.pageConnection.edges.push(...pages.data.pageConnection.edges);
+    
+    allPages.data.pageConnection.edges.push(...(pages.data.pageConnection.edges || []));
   }
 
   const params = allPages.data?.pageConnection.edges.map((edge) => ({

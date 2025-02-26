@@ -6,14 +6,16 @@ export default async function PostsPage() {
   let posts = await client.queries.postConnection({
     sort: "date",
   });
-  const allPosts = posts;
+  const allPosts = posts as any;
 
   while (posts.data?.postConnection.pageInfo.hasNextPage) {
     posts = await client.queries.postConnection({
       sort: "date",
       after: posts.data.postConnection.pageInfo.endCursor,
     });
-    allPosts.data.postConnection.edges.push(...posts.data.postConnection.edges);
+    allPosts.data.postConnection.edges.push(
+      ...(posts.data.postConnection.edges || [])
+    );
   }
 
   allPosts.data.postConnection.edges.reverse();

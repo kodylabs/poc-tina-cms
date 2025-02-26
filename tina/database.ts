@@ -1,3 +1,3 @@
-import { createLocalDatabase } from "@tinacms/datalayer";
+import { createLocalDatabase, LocalBackendAuthProvider } from "@tinacms/datalayer";
 
 export default createLocalDatabase();

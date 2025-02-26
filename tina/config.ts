@@ -1,10 +1,16 @@
-import { defineConfig } from "tinacms";
+import {
+  UsernamePasswordAuthJSProvider,
+  // TinaUserCollection,
+} from "tinacms-authjs/dist/tinacms";
+import { defineConfig, LocalAuthProvider } from "tinacms";
 import nextConfig from "../next.config";
 
 import Post from "./collection/post";
 import Global from "./collection/global";
 import Author from "./collection/author";
 import Page from "./collection/page";
+
+const isLocal = process.env.TINA_PUBLIC_IS_LOCAL === "true";
 
 const config = defineConfig({
   //   token: process.env.TINA_TOKEN!,
@@ -27,9 +33,11 @@ const config = defineConfig({
   schema: {
     collections: [Page, Post, Author, Global],
   },
+  // authProvider: isLocal
+  // ? new LocalAuthProvider()
+  // : new UsernamePasswordAuthJSProvider(),
+  // contentApiUrlOverride: process.env.API_URL || "http://localhost:4001/graphql",
   // contentApiUrlOverride: "/api/tina/gql",
-  contentApiUrlOverride: process.env.API_URL || "http://localhost:4001/graphql",
-
 });
 
 export default config;

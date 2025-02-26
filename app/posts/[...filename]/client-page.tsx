@@ -37,7 +37,7 @@ export default function PostClientPage(props: ClientPostProps) {
   const { data } = useTina({ ...props });
   const post = data.post;
 
-  const date = new Date(post.date);
+  const date = new Date(post.date || new Date().toISOString());
   let formattedDate = "";
   if (!isNaN(date.getTime())) {
     formattedDate = format(date, "MMM dd, yyyy");
@@ -52,7 +52,7 @@ export default function PostClientPage(props: ClientPostProps) {
         >
           <span
             className={`bg-clip-text text-transparent bg-gradient-to-r ${
-              titleColorClasses[theme.color]
+              titleColorClasses["blue"]
             }`}
           >
             {post.title}
@@ -68,7 +68,7 @@ export default function PostClientPage(props: ClientPostProps) {
                 <Image
                   data-tina-field={tinaField(post.author, "avatar")}
                   className="h-14 w-14 object-cover rounded-full shadow-sm"
-                  src={post.author.avatar}
+                  src={post.author.avatar || ""}
                   alt={post.author.name}
                   width={500}
                   height={500}

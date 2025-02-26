@@ -52,15 +52,18 @@ export const Feature = ({
 
 export const Features = ({ data }: { data: PageBlocksFeatures }) => {
   return (
-    <Section color={data.color}>
+    <Section color={"blue"}>
       <Container
         className={`flex flex-wrap gap-x-10 gap-y-8 text-left`}
         size="large"
       >
-        {data.items &&
+        <p>
+          non
+        </p>
+        {/* {data.items &&
           data.items.map(function (block, i) {
-            return <Feature featuresColor={data.color} key={i} data={block} />;
-          })}
+            // return <Feature featuresColor={"blue"} key={i} />;
+          })} */}
       </Container>
     </Section>
   );

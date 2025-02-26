@@ -21,19 +21,20 @@ export default async function PostPage({
 
 export async function generateStaticParams() {
   let posts = await client.queries.postConnection();
-  const allPosts = posts;
+  const allPages = posts as any;
 
-  while (posts.data?.postConnection.pageInfo.hasNextPage) {
+  while (posts.data.postConnection.pageInfo.hasNextPage) {
     posts = await client.queries.postConnection({
       after: posts.data.postConnection.pageInfo.endCursor,
     });
-    allPosts.data.postConnection.edges.push(...posts.data.postConnection.edges);
+    
+    allPages.data.pageConnection.edges.push(...(posts.data.postConnection.edges || []));
   }
 
-  const params =
-    allPosts.data?.postConnection.edges.map((edge) => ({
-      filename: edge.node._sys.breadcrumbs,
-    })) || [];
+  const params = allPages.data?.pageConnection.edges.map((edge) => ({
+    filename: edge.node._sys.breadcrumbs,
+  })) || [];
 
-  return params;
+  // exclude the home page
+  return params.filter(p => !p.filename.every(x => x === "home"));
 }

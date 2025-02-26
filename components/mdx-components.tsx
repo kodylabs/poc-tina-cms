@@ -27,7 +27,7 @@ export const components: Components<{
   };
   video: PageBlocksVideo;
 }> = {
-  code_block: (props) => <Prism {...props} />,
+  // code_block: (props) => <Prism {...props} />,
   BlockQuote: (props: {
     children: TinaMarkdownContent;
     authorName: string;
@@ -37,11 +37,11 @@ export const components: Components<{
         <blockquote>
           <TinaMarkdown 
             content={props.children}
-            components={{
-              mermaid({ value }) {
-                return <MermaidElement value={value} />;
-              }
-            }}
+            // components={{
+            //   mermaid({ value }) {
+            //     return <MermaidElement value={value} />;
+            //   }
+            // }}
           />
           {props.authorName}
         </blockquote>
@@ -71,11 +71,11 @@ export const components: Components<{
           <div className="">
             <TinaMarkdown 
               content={props.children}
-              components={{
-                mermaid({ value }) {
-                  return <MermaidElement value={value} />;
-                }
-              }}
+              // components={{
+              //   mermaid({ value }) {
+              //     return <MermaidElement value={value} />;
+              //   }
+              // }}
             />
           </div>
           <div className="mt-8 ">
@@ -105,11 +105,11 @@ export const components: Components<{
               {props.disclaimer && 
                   <TinaMarkdown 
                     content={props.disclaimer}
-                    components={{
-                      mermaid({ value }) {
-                        return <MermaidElement value={value} />;
-                      }
-                    }}
+                    // components={{
+                    //   mermaid({ value }) {
+                    //     return <MermaidElement value={value} />;
+                    //   }
+                    // }}
                   />}
             </div>
           </div>
@@ -119,12 +119,13 @@ export const components: Components<{
   },
   img: (props) => (
     <span className="flex items-center justify-center">
-      <Image src={props.url} alt={props.alt} width={500} height={500} />
+      image normaelment
+      {/* <Image src={props.url} alt={props.alt} width={500} height={500} /> */}
     </span>
   ),
-  mermaid({ value }) {
-    return <MermaidElement value={value} />;
-  },
+  // mermaid({ value }) {
+  //   return <MermaidElement value={value} />;
+  // },
   video: (props) => {
     return <Video data={props} />;
   }
